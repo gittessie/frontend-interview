@@ -47,9 +47,13 @@ You should not take more than 4 hours of time on this, even if you feel incomple
 Please, answer the following questions in this readme, underneath the question
 
 1. Name a newer feature of javascript that you believe is extra useful, and discuss how you have used it in this project, or how you would use it if needed.
+
+
 I think the introduction of async/ await has made dealing with asynchronous calls so much cleaner. I used this in Repositories.js in the searchRepositories function. Awaiting makes the logic much easier to follow, as opposed to the alternative which would have involved chaining a bunch of promises together with .then()s 
 
 2. What are 3 things you think `React` does very poorly? What tools do this better, if any?
+
+
 Obviously, React doesn't have native routing support which is why we had to pull in react-router-dom to handle that. Managing form changes, validation, and handling submission and errors is also a pretty tedious task in React. Libraries like Formik help make that easier. I can't think of a third thing, but I can mention two that were previously done poorly but I feel React has improved: state management and managing CSS. Since the introduction of useContext/ useReducer I've found that external state management libraries are less necessary. Likewise, though I think external CSS libraries are still very beneficial to pull into a React project, I've acknowledged and appreciate that React now supports CSS modules by default (something you used to have to eject and change settings around to do before), and I think there's a lot that can be done with just modular CSS so this has definitely benefitted me. 
 
 ## Submissions
