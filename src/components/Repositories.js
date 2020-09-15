@@ -13,12 +13,41 @@ import RepositorySearchResults from "./RepositorySearchResults";
  * Documentation for the search api is here:
  * https://developer.github.com/v3/search/#search-repositories
  */
+const debounce = (func, waitTime) => {
+  let timeout;
+  const debouncedFunc = (...args) =>{
+      clearTimeout(timeout);
+      const context = this; 
+      timeout = setTimeout(()=>{
+        func.apply(context, args)
+      }, waitTime);
+    
+  }
+  return debouncedFunc;
+}
 
 const Repositories = () => {
-  let searchResults;
+  const [searchResults, setSearchResults] = React.useState(undefined);
+
+  const searchRepositories = async (query) => {
+    let response = await fetch(`https://api.github.com/search/repositories?q=${query}`)
+    if (response.ok) { 
+      let json = await response.json();
+      setSearchResults(json.items);
+    } else {
+      alert("Error: " + response.status);
+    }
+  }
+
+  const debounceSearchRepositories = debounce(searchRepositories, 2000); // wait for the user to not type for two seconds
+
+  const handleSearchChange = e => {
+    debounceSearchRepositories(e.target.value);
+  }
+
   return (
     <div>
-      <input name="search-terms" />
+      <input name="search-terms" onChange={(e) => handleSearchChange(e)}/>
       {searchResults ? (
         <RepositorySearchResults searchResults={searchResults} />
       ) : (
