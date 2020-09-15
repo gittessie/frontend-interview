@@ -1,5 +1,16 @@
 import * as React from "react";
 import RepositorySearchResults from "./RepositorySearchResults";
+import styled from 'styled-components';
+
+const Input = styled.input`
+  height: 2rem;
+  width: 50%;
+  min-width: 200px;
+  border: 1px solid black;
+  box-sixing: border-box;
+  border-radius: 5px;
+  margin: 5px;
+`;
 
 /**
  * Once given an input, fetch the repositories we searched
@@ -47,11 +58,11 @@ const Repositories = () => {
 
   return (
     <div>
-      <input name="search-terms" onChange={(e) => handleSearchChange(e)}/>
+      <Input name="search-terms" onChange={(e) => handleSearchChange(e)}/>
       {searchResults ? (
         <RepositorySearchResults searchResults={searchResults} />
       ) : (
-        <div>Enter some text to search github repositories</div>
+        <div style={{ fontSize: '20px' }}>Enter some text to search github repositories</div>
       )}
     </div>
   );

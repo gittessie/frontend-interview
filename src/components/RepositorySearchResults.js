@@ -3,7 +3,7 @@ import RepositorySearchResult from "./RepositorySearchResult";
 import styled from 'styled-components';
 
 const Results = styled.div`
-  height: calc(100vh - 80px);
+  height: calc(100vh - 80px - 2rem);
   overflow: auto;
   box-sixing: border-box;
 `;

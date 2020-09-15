@@ -1,5 +1,16 @@
 import * as React from "react";
 import { useLocation } from "react-router-dom";
+import styled from 'styled-components';
+
+const Container = styled.div`
+  padding: 20px;
+  a {
+    color: #367588;
+  }
+  a:hover{
+    font-weight:bold;
+  }
+`;
 
 /**The results should be displayed as cards or a list, containing at least the following info:
     Full name | description | Stargazers Count | Open issues Count | match score
@@ -8,7 +19,7 @@ const RepositorySearchResult = () => {
     const location = useLocation();
     const searchResult = location.state.result;
   return (
-    <div>
+    <Container>
         <h1>{searchResult.full_name}</h1>
         <p>{searchResult.description}</p>
         <b>Stargazers Count:</b>
@@ -25,7 +36,7 @@ const RepositorySearchResult = () => {
         <p>{searchResult.license?.name}</p>
         <p>{searchResult.license?.spdx_id}</p>
         <p>{searchResult.license?.url}</p>
-    </div>
+    </Container>
   );
 };
 
