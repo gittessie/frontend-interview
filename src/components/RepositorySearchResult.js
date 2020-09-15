@@ -1,19 +1,21 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
+import { getRepositoryRoute } from "../constants/routes";
 
 /**The results should be displayed as cards or a list, containing at least the following info:
     Full name | description | Stargazers Count | Open issues Count | match score
  */
-const RepositorySearchResult = ({searchResult}) => {
+const RepositorySearchResult = ({ searchResult }) => {
+  let detailPath = getRepositoryRoute(searchResult.id);
   return (
     <div>
+      <Link to={{ pathname: detailPath, state: { result: searchResult } }}>
         <h1>{searchResult.full_name}</h1>
         <p>{searchResult.description}</p>
-        <h5>Stargazers Count:</h5>
-        <p>{searchResult.stargazers_count}</p>
-        <h5>Open Issues Count:</h5>
-        <p>{searchResult.open_issues_count}</p>
-        <h5>Match Score:</h5>
-        <p>{searchResult.score}</p>
+        <b>Stargazers Count:</b> {searchResult.stargazers_count}
+        <b>Open Issues Count:</b> {searchResult.open_issues_count}
+        <b>Match Score:</b> {searchResult.score}
+      </Link>
     </div>
   );
 };

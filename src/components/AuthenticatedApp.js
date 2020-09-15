@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import Home from "./Home";
 import Profile from "./Profile";
 import Repositories from "./Repositories";
+import RepositoryDetails from "./RepositoryDetails";
 
 const AuthenticatedApplication = () => {
   return (
@@ -19,8 +20,12 @@ const AuthenticatedApplication = () => {
           <Home />
         </Route>
 
-        <Route path="/repositories">
+        <Route exact path="/repositories">
           <Repositories />
+        </Route>
+
+        <Route path="/repositories/:id">
+          <RepositoryDetails/>
         </Route>
 
         <Route path="*">
