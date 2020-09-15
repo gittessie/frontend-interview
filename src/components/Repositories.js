@@ -39,7 +39,7 @@ const Repositories = () => {
     }
   }
 
-  const debounceSearchRepositories = debounce(searchRepositories, 2000); // wait for the user to not type for two seconds
+  const debounceSearchRepositories = debounce(searchRepositories, 1000); // wait for the user to not type for two seconds
 
   const handleSearchChange = e => {
     debounceSearchRepositories(e.target.value);
