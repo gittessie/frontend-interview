@@ -1,4 +1,5 @@
 import * as React from "react";
+import RepositorySearchResults from "./RepositorySearchResults";
 
 /**
  * Once given an input, fetch the repositories we searched
@@ -21,7 +22,7 @@ const Repositories = () => {
       {searchResults ? (
         <RepositorySearchResults searchResults={searchResults} />
       ) : (
-        <div>Enter somee test to search github repositories</div>
+        <div>Enter some text to search github repositories</div>
       )}
     </div>
   );
