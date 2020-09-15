@@ -18,9 +18,10 @@ const RepositorySearchResult = () => {
         <b>Match Score:</b>
         <p>{searchResult.score}</p>
 
-        <p>{searchResult.issues_url}</p>
+        <p><a href={`${searchResult.html_url}/issues`} target="_blank">Issues</a></p>
+        <p><a href={`${searchResult.html_url}/pulls`} target="_blank">Pull Requests</a></p>
 
-        <p>{searchResult.pulls_url}</p>
+        <b>License:</b>
         <p>{searchResult.license?.name}</p>
         <p>{searchResult.license?.spdx_id}</p>
         <p>{searchResult.license?.url}</p>
